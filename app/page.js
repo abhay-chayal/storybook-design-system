@@ -1,65 +1,133 @@
-import Image from "next/image";
+import Button from "@/components/ui/Button";
+import Input from "@/components/ui/Input";
+import ProductCard from "@/components/ui/ProductCard";
+
+export const metadata = {
+  title: "Component Design System | Storybook + Next.js",
+  description:
+    "A production-grade component design system built with Next.js, Tailwind CSS, and Storybook. Showcasing Button, Input, and ProductCard components.",
+};
+
+const products = [
+  {
+    id: 1,
+    image:
+      "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=300&fit=crop",
+    title: "Classic Minimalist Watch",
+    description:
+      "A beautifully crafted timepiece with a slim profile and premium leather strap. Perfect for every occasion.",
+    price: "129.99",
+    badge: "New",
+  },
+  {
+    id: 2,
+    image:
+      "https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=400&h=300&fit=crop",
+    title: "Luxury Noir Perfume",
+    description:
+      "An intoxicating blend of oud, black amber, and sandalwood that lingers long after you leave the room.",
+    price: "249.00",
+    badge: "Limited",
+  },
+  {
+    id: 3,
+    image:
+      "https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=400&h=300&fit=crop",
+    title: "Running Pro Sneakers",
+    description:
+      "Lightweight, breathable, and built for performance. Engineered for runners who demand the best.",
+    price: "79.99",
+    badge: "Sale",
+  },
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.js file.
+    <main className="min-h-screen bg-slate-50 dark:bg-slate-950">
+      {/* Hero */}
+      <header className="bg-gradient-to-br from-indigo-600 via-indigo-700 to-violet-700 text-white py-20 px-6 text-center">
+        <div className="max-w-3xl mx-auto">
+          <span className="inline-block bg-white/20 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1 rounded-full mb-4 tracking-widest uppercase">
+            Design System
+          </span>
+          <h1 className="text-4xl sm:text-5xl font-extrabold leading-tight mb-4">
+            Component Design System
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="text-indigo-200 text-lg mb-8 max-w-xl mx-auto">
+            A production-grade UI library built with Next.js 16, Tailwind CSS
+            v4 &amp; Storybook 8. Modular, accessible, and beautiful.
           </p>
+          <div className="flex gap-4 justify-center flex-wrap">
+            <Button variant="primary">
+              View on Storybook
+            </Button>
+            <Button variant="secondary">
+              GitHub
+            </Button>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+      </header>
+
+      <div className="max-w-6xl mx-auto px-6 py-16 space-y-20">
+
+        {/* Button Section */}
+        <section>
+          <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">
+            Button
+          </h2>
+          <p className="text-slate-500 dark:text-slate-400 mb-8 text-sm">
+            Supports <code className="bg-slate-100 dark:bg-slate-800 px-1 rounded">primary</code>,{" "}
+            <code className="bg-slate-100 dark:bg-slate-800 px-1 rounded">secondary</code>, disabled, and loading states.
+          </p>
+          <div className="flex flex-wrap gap-4 items-center p-8 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm">
+            <Button variant="primary">Primary</Button>
+            <Button variant="secondary">Secondary</Button>
+            <Button variant="primary" disabled>Disabled</Button>
+            <Button variant="primary" loading>Loading…</Button>
+            <Button variant="secondary" disabled>Secondary Disabled</Button>
+          </div>
+        </section>
+
+        {/* Input Section */}
+        <section>
+          <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">
+            Input
+          </h2>
+          <p className="text-slate-500 dark:text-slate-400 mb-8 text-sm">
+            Text, password, and email types with label, icon, focus ring, and disabled state.
+          </p>
+          <div className="grid sm:grid-cols-2 gap-6 p-8 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm">
+            <Input label="Search" placeholder="Search products…" type="text" />
+            <Input label="Password" placeholder="Enter your password" type="password" />
+            <Input label="Email" placeholder="you@example.com" type="email" />
+            <Input label="Disabled Field" placeholder="Not editable" disabled />
+          </div>
+        </section>
+
+        {/* ProductCard Section */}
+        <section>
+          <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">
+            ProductCard
+          </h2>
+          <p className="text-slate-500 dark:text-slate-400 mb-8 text-sm">
+            Responsive card with image zoom, badge, description, price, and Add-to-Cart CTA.
+          </p>
+          <div className="flex flex-wrap gap-8 justify-center">
+            {products.map((p) => (
+              <ProductCard key={p.id} {...p} />
+            ))}
+          </div>
+        </section>
+
+        {/* Footer note */}
+        <footer className="text-center text-slate-400 dark:text-slate-600 text-sm pb-8">
+          Built with Next.js 16 · Tailwind CSS v4 · Storybook 8 · Run{" "}
+          <code className="bg-slate-100 dark:bg-slate-800 text-indigo-600 dark:text-indigo-400 px-1.5 py-0.5 rounded">
+            npm run storybook
+          </code>{" "}
+          to open the interactive dashboard.
+        </footer>
+      </div>
+    </main>
   );
 }

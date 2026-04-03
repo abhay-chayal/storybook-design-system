@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Component Design System
 
-## Getting Started
+A beautifully crafted, production-grade Component Design System built with **Next.js 16 (App Router)**, **Tailwind CSS v4**, and **Storybook 8**.
 
-First, run the development server:
+## 🚀 Key Features
 
+- **Isolated Component Sandbox**: Build, test, and view UI components outside the main application using Storybook.
+- **Accessible & Responsive UI**: Three highly polished foundational components (`Button`, `Input`, and `ProductCard`).
+- **Dark & Light Mode Integration**: Fluid UI changes supporting both system preferences and a Storybook global background toggle.
+- **Micro-Animations**: Hover states, loading spinners, and image zoom functionalities out of the box.
+- **Static Export Ready**: Completely prepared for deployment to static hosting platforms like Vercel or GitHub Pages.
+
+---
+
+## 💻 Getting Started
+
+### 1. Install Dependencies
+Ensure you have Node.js installed, then run:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Start the Sandbox (Storybook)
+Launch the interactive Storybook dashboard to view individual component states and configurations.
+```bash
+npm run storybook
+```
+*Navigates automatically to `http://localhost:6006`.*
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### 3. Start the Next.js Application
+See the complete Design System showcased on a unified landing page.
+```bash
+npm run dev
+```
+*Navigates to `http://localhost:3000`.*
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🧱 Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+- `/components/ui/` - Home to your reusable building blocks (`Button.jsx`, `Input.jsx`, `ProductCard.jsx`).
+- `/stories/` - Home to the Storybook configurators that detail every variation of a component.
+- `/app/` - The Next.js 16 App Router containing the global CSS and showcase page.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🛠️ Production Builds
 
-## Deploy on Vercel
+**For the Next.js App:**
+```bash
+npm run build
+```
+*(Configured to export static HTML via `next.config.mjs`)*
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**For Storybook:**
+```bash
+npm run build-storybook
+```
+*(Outputs the static sandbox to the `storybook-static` directory)*
